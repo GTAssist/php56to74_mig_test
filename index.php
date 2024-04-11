@@ -209,10 +209,8 @@
     	<br>
 		
     	<?php
-	
 		#include($docroot."/update/update_checker.php");
-		
-		$is_db_installed = $dbo->fetchNum("SHOW TABLES LIKE 'zz_modules'");
+		$is_db_installed = $dbo->fetchNum("SHOW TABLES LIKE 'zz_modules'", $conn);
     	 
 		?>
 		<script>
