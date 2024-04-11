@@ -211,37 +211,8 @@
     	<?php
 	
 		#include($docroot."/update/update_checker.php");
-		?php
-//correzione fetchnum da verificare
-// Inclusione dei file necessari
-require_once('lib/config.php');
-require_once('lib/dbo.class.php');
-require_once('functions.php'); // Assuming functions.php is required
-
-// Connessione al database
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-// Controllo della connessione
-if ($conn->connect_error) {
-  die("Errore di connessione al database: " . $conn->connect_error);
-}
-
-// Impostazione del charset
-$conn->set_charset("utf8");
-
-// Query per recuperare le informazioni sulle tabelle
-$sql = "SHOW TABLES LIKE '%'";
-
-// **Correzione:**
-$result = $dbo->fetchNum($sql, $conn); // Passaggio di $conn come secondo argomento
-
-// Controllo del risultato
-if (!$result) {
-  echo "Errore durante l'esecuzione della query.";
-  exit;
-}
-
-		$is_db_installed = $dbo->fetchNum("SHOW TABLES LIKE 'zz_modules'",$conn);
+		
+		$is_db_installed = $dbo->fetchNum("SHOW TABLES LIKE 'zz_modules'");
     	 
 		?>
 		<script>
