@@ -210,6 +210,7 @@
 		
     	<?php
 		#include($docroot."/update/update_checker.php");
+		$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
 		$is_db_installed = $dbo->fetchNum("SHOW TABLES LIKE 'zz_modules'", $conn);
     	 
 		?>
